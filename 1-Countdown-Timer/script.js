@@ -6,6 +6,7 @@ const secondEl = document.getElementById("second");
 console.log(hourEl);
 
 countdown = () => {
+  const birthDay = "24 Jul 2023";
   const newYear = "1 Jan " + (new Date().getFullYear() + 1);
   const newYearDate = new Date(newYear);
   const currentDate = new Date();

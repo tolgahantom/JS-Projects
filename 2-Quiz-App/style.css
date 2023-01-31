@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+:root {
+  --main-color: #913175;
+  --secondary-color: #cd5888;
+  --dark-color: #20262e;
+  --white-color: #e9e8e8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--dark-color);
+  background-color: var(--white-color);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+.quiz-container {
+  text-align: center;
+  background-color: #fff;
+  width: 700px;
+  height: 65%;
+  padding: 20px 40px;
+}
+
+.title {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-size: 25px;
+  margin: 10px auto;
+}
+
+.answer-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 20%;
+  margin: 0 auto;
+  font-size: 16px;
+  margin: 10px auto;
+}
+
+.answer-check .correct {
+  color: green;
+}
+
+.answer-check .wrong {
+  color: red;
+}
+
+.question-category {
+  background-color: var(--main-color);
+  color: var(--white-color);
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 15px;
+  font-size: 12px;
+  margin: 10px auto;
+}
+
+.question {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px auto;
+}
+
+.answers {
+  margin: 10px auto;
+}
+
+.answer {
+  width: 100%;
+  background-color: var(--main-color);
+  margin: 5px auto;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: var(--white-color);
+  transition: all 0.3s ease;
+}
+
+.answer:hover {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+}
+
+.check-btn {
+  margin: 10px auto;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  background-color: var(--white-color);
+  color: inherit;
+  font-size: 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0px 8px 15px -7px rgba(32, 38, 46, 1);
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+.btn:hover {
+  background-color: var(--dark-color);
+  color: var(--white-color);
+}
