@@ -16,32 +16,46 @@
   </head>
   <body>
     <div class="quiz-container">
+      <div class="result-page">
+        <h3>Your Results</h3>
+        <div class="results">
+          <div class="correct-result">
+            <i class="fa-solid fa-check"></i>
+            <span id="correct-result">0</span>
+          </div>
+          <div class="wrong-result">
+            <i class="fa-solid fa-xmark"></i>
+            <span id="wrong-result">0</span>
+          </div>
+        </div>
+      </div>
       <div class="title">
         <h3>Quiz App</h3>
       </div>
       <div class="answer-check">
         <div class="correct">
           <i class="fa-solid fa-check"></i>
-          <span>3</span>
+          <span id="correct-counter">0</span>
         </div>
         <div class="wrong">
           <i class="fa-solid fa-xmark"></i>
-          <span>5</span>
+          <span id="wrong-counter">0</span>
         </div>
       </div>
       <div class="question-category">Sport</div>
       <div class="question">Lorem ipsum dolor sit amet?</div>
       <ul class="answers">
-        <li class="answer">
-          A.
-          <span>answer 1</span>
-        </li>
-        <li class="answer">B. <span>answer 2</span></li>
-        <li class="answer">C. <span>answer 3</span></li>
-        <li class="answer">D. <span>answer 4</span></li>
+        <li class="answer"></li>
+        <li class="answer"></li>
+        <li class="answer"></li>
+        <li class="answer"></li>
       </ul>
-      <button class="btn check-btn">Check Answer</button>
+      <div class="buttons">
+        <button class="btn check-btn" id="check-btn">Check Answer</button>
+        <button class="btn" id="try-again">Try Again</button>
+      </div>
     </div>
+
     <script src="app.js"></script>
   </body>
 </html>

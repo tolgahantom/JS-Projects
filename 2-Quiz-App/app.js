@@ -1,76 +1,133 @@
-// const answersInput = document.querySelectorAll(".form-check-input");
-// const answersLabel = document.querySelectorAll(".answer-label");
-// const questionEL = document.getElementById("question-p");
-// const submitButton = document.getElementById("submitBtn");
-// let correctCounter = 0;
-// let discorrectCounter = 0;
+let answersEl = document.querySelectorAll(".answer");
+let checkBtn = document.getElementById("check-btn");
+let categoryEl = document.querySelector(".question-category");
+let questionEl = document.querySelector(".question");
+let tryBtn = document.getElementById("try-again");
+let correctCounterEl = document.getElementById("correct-counter");
+let wrongCounterEl = document.getElementById("wrong-counter");
+let resultPage = document.querySelector(".result-page");
+let resultCorrect = document.querySelector(".correct-result");
+let resultWrong = document.querySelector(".wrong-result");
 
-// getQuestionsFromApi = (callback) => {
-//   fetch("https://the-trivia-api.com/api/questions")
-//     .then((resolve) => resolve.json())
-//     .then((data) => loadQuiz(data));
-// };
+let allQuestions = [];
+let mainCorrectAnswer = "";
 
-// let currentQuestion = 0;
+let questionCounter = 0;
+let correctCounter = 0;
+let wrongCounter = 0;
 
-// loadQuiz = (questions, callback) => {
-//   let i;
-//   questionEL.innerText = questions[currentQuestion].question;
-//   let nums = randomNumGenerator();
-//   for (i = 0; i < 3; i++) {
-//     answersLabel[nums[i]].innerText =
-//       questions[currentQuestion].incorrectAnswers[i];
-//   }
-//   answersLabel[nums[i]].innerText = questions[currentQuestion].correctAnswer;
-//   controlAnswer(questions[currentQuestion].correctAnswer);
-// };
+document.addEventListener("DOMContentLoaded", () => {
+  getQuestionFromAPI();
+  eventListeners();
+  setStartDisplay();
+});
 
-// randomNumGenerator = () => {
-//   let nums = [];
-//   for (let index = 0; nums.length < 4; index++) {
-//     let num = Math.floor(Math.random() * 4);
-//     if (nums.indexOf(num) == -1) {
-//       nums.push(num);
-//     } else {
-//       continue;
-//     }
-//   }
-//   return nums;
-// };
+//ADDING ACTIVE CLASS
+answersEl.forEach((answer) => {
+  answer.addEventListener("click", (e) => {
+    resetClasses();
+    answer.classList.add("active");
+    checkBtn.disabled = false;
+  });
+});
 
-// controlAnswer = (correct) => {
-//   let yourAnswer = getSelected();
-//   if (correct == yourAnswer) {
-//     correctCounter++;
-//     document.getElementById("num-of-correct").innerHTML = correctCounter;
+//RESET ACTIVE CLASSES
+resetClasses = () => {
+  answersEl.forEach((answer) => {
+    answer.classList.remove("active");
+  });
+};
 
-//     console.log("correct");
-//   } else {
-//     document.getElementById("num-of-wrong").innerHTML = discorrectCounter;
-//     discorrectCounter++;
-//   }
-// };
+//EVENT LISTENERS
+function eventListeners() {
+  checkBtn.addEventListener("click", checkAnswer);
+  tryBtn.addEventListener("click", restartQuiz);
+}
 
-// getSelected = () => {
-//   let yourAnswer;
-//   answersInput.forEach((answer) => {
-//     if (answer.checked) {
-//       answersLabel.forEach((label) => {
-//         if (label.getAttribute("for") == answer.id) {
-//           yourAnswer = label.innerHTML;
-//         }
-//       });
-//     }
-//   });
+//GET QUESTIONS FROM API
+getQuestionFromAPI = (callback) => {
+  fetch("https://the-trivia-api.com/api/questions")
+    .then((resolve) => resolve.json())
+    .then((data) => {
+      allQuestions = data;
+      showQuestion();
+    });
+};
 
-//   return yourAnswer;
-// };
+//SHOW QUESTION IN UI
+showQuestion = () => {
+  let questions = allQuestions;
+  let category, currentQuestion, correctAnswer;
+  let allOptions = [];
+  if (questionCounter == questions.length) {
+    showResults();
+  }
+  currentQuestion = questions[questionCounter];
+  category = currentQuestion.category;
+  mainCorrectAnswer = currentQuestion.correctAnswer;
+  correctAnswer = currentQuestion.correctAnswer;
+  allOptions = currentQuestion.incorrectAnswers;
+  allOptions.splice(
+    Math.floor(Math.random() * (currentQuestion.incorrectAnswers.length + 1)),
+    0,
+    correctAnswer
+  );
 
-// document.onload = getQuestionsFromApi(loadQuiz);
+  categoryEl.innerHTML = category;
+  questionEl.innerHTML = currentQuestion.question;
+  answersEl.forEach((answer, index) => {
+    answer.innerHTML = allOptions[index];
+  });
+};
 
-// submitButton.addEventListener("click", () => {
-//   currentQuestion++;
-//   if (currentQuestion < 10) {
-//     getQuestionsFromApi(loadQuiz);
-//   } else alert("You have finished the test");
-// });
+//FINISH QUIZ
+showResults = () => {
+  setFinishDisplay();
+  resultWrong.textContent = wrongCounter;
+  resultCorrect.textContent = correctCounter;
+};
+
+//RESTART QUIZ
+restartQuiz = () => {
+  location.reload();
+};
+
+//CHECK ANSWER
+checkAnswer = () => {
+  let selectedAnswer;
+  answersEl.forEach((answer) => {
+    if (answer.classList.contains("active")) {
+      selectedAnswer = answer.textContent;
+    }
+  });
+  if (selectedAnswer == mainCorrectAnswer) {
+    correctCounter++;
+    questionCounter++;
+    fixResults();
+  } else {
+    wrongCounter++;
+    questionCounter++;
+    fixResults();
+  }
+  resetClasses();
+  showQuestion();
+};
+
+//FIXING RESULTS IN UI
+fixResults = () => {
+  correctCounterEl.textContent = correctCounter;
+  wrongCounterEl.textContent = wrongCounter;
+};
+
+// DISPLAY SETTINGS
+setStartDisplay = () => {
+  tryBtn.style.display = "none";
+  resultPage.style.display = "none";
+  checkBtn.style.display = "block";
+};
+
+setFinishDisplay = () => {
+  tryBtn.style.display = "block";
+  resultPage.style.display = "block";
+  checkBtn.style.display = "none";
+};
