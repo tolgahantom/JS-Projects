@@ -16,6 +16,7 @@ let questionCounter = 0;
 let correctCounter = 0;
 let wrongCounter = 0;
 
+//START
 document.addEventListener("DOMContentLoaded", () => {
   getQuestionFromAPI();
   eventListeners();
