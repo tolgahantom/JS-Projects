@@ -25,6 +25,10 @@ img {
   height: auto;
 }
 
+li {
+  list-style-type: none;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
@@ -153,4 +157,101 @@ img {
 
 .food-detail .btn:hover {
   background-color: var(--secondary-color);
+}
+
+.result-food-detail.active {
+  scale: 1;
+}
+
+.result-food-detail {
+  scale: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  gap: 50px;
+  overflow-y: scroll;
+}
+
+.result-food-detail .close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  outline: none;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 17px;
+  text-align: center;
+  line-height: 35px;
+  background-color: var(--main-color);
+  color: var(--white-color);
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.result-food-detail .close-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.result-food-detail .detail-img img {
+  border-bottom-right-radius: 35px;
+  border-top-right-radius: 35px;
+}
+
+.detail-food-name {
+  font-size: 45px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+hr {
+  border: 1px solid var(--dark-color);
+  margin: 10px 0;
+}
+
+.detail-food-category {
+  font-size: 20px;
+  color: var(--main-color);
+}
+
+.detail-food-tags {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.detail-food-tags .tag {
+  padding: 7px 15px;
+  background-color: var(--main-color);
+  color: var(--white-color);
+  border-radius: 15px;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.subtitle {
+  font-size: 20px;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.ingredient-list li {
+  list-style-type: circle;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.detail-food-video {
+  display: flex;
+  justify-content: center;
 }
