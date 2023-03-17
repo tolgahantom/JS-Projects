@@ -23,13 +23,12 @@
 
 body {
   font-family: "Edu NSW ACT Foundation", cursive;
-  background-color: var(--bg-color);
   color: var(--color);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  background-color: var(--bg-color);
 }
 
 center {
@@ -37,11 +36,11 @@ center {
 }
 
 .list-box {
-  background-color: var(--color-light);
   border-radius: 25px;
   padding: 25px;
   font-size: 30px;
   text-align: center;
+  background-color: var(--color-light);
 }
 
 li {
@@ -58,6 +57,7 @@ li {
 }
 
 .list-items {
+  background-color: var(--bg-light);
   text-align: left;
   margin-top: 25px;
   max-height: 550px;
@@ -66,6 +66,10 @@ li {
   min-width: 500px;
   width: 100%;
   padding-left: 15px;
+}
+
+#finished {
+  text-decoration: line-through;
 }
 
 .list-items::-webkit-scrollbar {
@@ -103,7 +107,7 @@ input::placeholder {
   .list-box {
     padding: 15px;
     font-size: 20px;
-    max-width: 300px;
+    max-width: 350px;
   }
 
   input {

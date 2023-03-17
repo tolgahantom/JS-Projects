@@ -1,7 +1,16 @@
 const input = document.querySelector("input");
+const unFinishedUlEL = document.querySelector("#unfinished");
+const FinishedUlEL = document.querySelector("#finished");
 const ulEl = document.querySelector(".list-items");
+let finished;
 
 const list = JSON.parse(localStorage.getItem("list") || "[]");
+
+finishedTask = (deletingIndex) => {
+  list[deletingIndex].finished = true;
+  localStorage.setItem("list", JSON.stringify(list));
+  showList();
+};
 
 deleteTask = (deletingIndex) => {
   list.splice(deletingIndex, 1);
@@ -12,8 +21,13 @@ deleteTask = (deletingIndex) => {
 showList = () => {
   document.querySelectorAll(".list-item").forEach((note) => note.remove());
   list.forEach((item, index) => {
-    let liEl = `<li onclick="deleteTask(${index})" class="list-item">${item}</li>`;
-    ulEl.innerHTML += liEl;
+    if (!item.finished) {
+      let liEl = `<li onclick="finishedTask(${index})" class="list-item">${item.title}</li>`;
+      ulEl.innerHTML += liEl;
+    } else {
+      let liEl = `<li onclick="deleteTask(${index})" class="list-item">${item.title}</li>`;
+      FinishedUlEL.innerHTML += liEl;
+    }
   });
 };
 
@@ -31,7 +45,11 @@ input.addEventListener("keypress", (e) => {
       alert("You must fill in the blank");
       return;
     } else {
-      addItemToLS(input.value);
+      let taskInfo = {
+        title: input.value,
+        finished: false,
+      };
+      addItemToLS(taskInfo);
       showList();
     }
   }
