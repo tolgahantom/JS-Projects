@@ -2,6 +2,7 @@ const input = document.querySelector("input");
 const unFinishedUlEL = document.querySelector("#unfinished");
 const FinishedUlEL = document.querySelector("#finished");
 const ulEl = document.querySelector(".list-items");
+const clearButton = document.getElementById("clearButton");
 let finished;
 
 const list = JSON.parse(localStorage.getItem("list") || "[]");
@@ -17,6 +18,20 @@ deleteTask = (deletingIndex) => {
   localStorage.setItem("list", JSON.stringify(list));
   showList();
 };
+
+clearButton.addEventListener("click", () => {
+  let newList;
+  list.forEach((item, index) => {
+    newList = list.filter((e) => {
+      if (!e.finished) {
+        return true;
+      }
+    });
+  });
+
+  localStorage.setItem("list", JSON.stringify(newList));
+  location.reload();
+});
 
 showList = () => {
   document.querySelectorAll(".list-item").forEach((note) => note.remove());

@@ -66,10 +66,27 @@ li {
   min-width: 500px;
   width: 100%;
   padding-left: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 #finished {
   text-decoration: line-through;
+  position: relative;
+  padding-top: 25px;
+}
+
+#clearButton {
+  color: var(--color);
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+h5 {
+  margin-top: 15px;
 }
 
 .list-items::-webkit-scrollbar {
@@ -123,5 +140,9 @@ input::placeholder {
     height: 250px;
     min-width: 300px;
     max-width: 300px;
+  }
+
+  #clearButton {
+    font-size: 16px;
   }
 }
