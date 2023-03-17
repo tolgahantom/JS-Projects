@@ -101,10 +101,10 @@ input::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
   }
 
   .list-box {
+    margin-top: 50px;
     padding: 15px;
     font-size: 20px;
     max-width: 350px;
@@ -120,7 +120,7 @@ input::placeholder {
 
   .list-items {
     max-height: 350px;
-    height: 350px;
+    height: 250px;
     min-width: 300px;
     max-width: 300px;
   }
