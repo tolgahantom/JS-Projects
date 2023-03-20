@@ -109,10 +109,17 @@ ul {
 .person-list-item {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 5px 15px;
   border-bottom: 1px solid #333;
   border-radius: 10px;
   margin-bottom: 50px;
+}
+
+.person-list-item h3 {
+  text-align: left;
+  width: 150px;
+  overflow-x: hidden;
 }
 
 .person-list-item i {
@@ -219,4 +226,12 @@ form {
   top: 10px;
   font-size: 24px;
   cursor: pointer;
+}
+
+.settings-button {
+  display: flex;
+}
+
+.settings-button > div {
+  margin-left: 10px;
 }
