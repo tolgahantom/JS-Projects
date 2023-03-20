@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="add-person-container">
+      <div class="form-container">
+        <div class="close-button">
+          <i class="fa-sharp fa-regular fa-circle-xmark"></i>
+        </div>
+        <form>
+          <label for="name">Nickname</label>
+          <input type="text" id="name" />
+        </form>
+        <input type="date" name="" id="date" />
+        <button class="addPersonButton" type="submit">Add Person</button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="time-countdown">
+        <div class="days time-container">
+          <div class="title">Days</div>
+          <div class="time">3</div>
+        </div>
+        <div class="hours time-container">
+          <div class="title">Hours</div>
+          <div class="time">3</div>
+        </div>
+        <div class="minute time-container">
+          <div class="title">Minutes</div>
+          <div class="time">3</div>
+        </div>
+        <div class="second time-container">
+          <div class="title">Seconds</div>
+          <div class="time">3</div>
+        </div>
+      </div>
+    </div>
+    <i class="fa-solid fa-user" id="leftMenuIcon"></i>
+    <div class="left-menu">
+      <div class="add-person-button">+</div>
+      <ul class="person-list">
+        <h2 class="person-title">Your Friends</h2>
+        <li class="person-list-item">
+          <h3 class="nickname">Mother</h3>
+          <div class="startCountdownButton">
+            <i class="fa-solid fa-paper-plane"></i>
+          </div>
+        </li>
+        <li class="person-list-item">
+          <h3 class="nickname">Mother</h3>
+          <div class="startCountdownButton">
+            <i class="fa-solid fa-paper-plane"></i>
+          </div>
+        </li>
+        <li class="person-list-item">
+          <h3 class="nickname">Mother</h3>
+          <div class="startCountdownButton">
+            <i class="fa-solid fa-paper-plane"></i>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

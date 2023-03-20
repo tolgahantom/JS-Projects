@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(./bg.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+  z-index: -100;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -100;
+}
+
+.container {
+  position: relative;
+  padding-top: 10%;
+}
+
+.time-countdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.time-container {
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 100px;
+  width: 200px;
+  height: 200px;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+
+.time-container .title,
+.time-container .time {
+  color: #333;
+}
+
+.time-container .title {
+  font-size: 20px;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#leftMenuIcon {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#leftMenuIcon.active {
+  left: 330px;
+}
+
+.left-menu {
+  background-color: #fff;
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  left: -300px;
+  top: 0;
+  transition: all 0.3s ease;
+  color: #333;
+  padding: 20px 10px;
+}
+
+.person-title {
+  border-bottom: 2px solid #333;
+  font-size: 35px;
+  margin-bottom: 50px;
+}
+
+.person-list {
+  text-align: center;
+}
+
+.person-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #333;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.person-list-item i {
+  cursor: pointer;
+}
+
+.left-menu.active {
+  left: 0;
+}
+
+.add-person-button {
+  position: absolute;
+  background-color: blue;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  left: 50%;
+  bottom: 20px;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+  transform: translateX(-50%);
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+}
+
+.add-person-button:hover {
+  opacity: 0.8;
+}
+
+.add-person-container {
+  display: none !important;
+  z-index: 500;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.add-person-container.active {
+  display: flex !important;
+}
+
+.form-container {
+  background-color: #fff;
+  width: 450px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+.form-container input {
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #333;
+  font-size: 25px;
+  border-top: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.addPersonButton {
+  outline: none;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 18px;
+  padding: 10px 20px;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.addPersonButton:hover {
+  opacity: 0.8;
+}
+
+.form-container {
+  position: relative;
+}
+
+.close-button {
+  color: red;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
