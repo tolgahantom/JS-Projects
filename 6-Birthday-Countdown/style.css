@@ -30,6 +30,7 @@ body::after {
 
 .container {
   position: relative;
+  height: 100%;
   padding-top: 10%;
 }
 
@@ -244,4 +245,133 @@ form {
 
 .person-info .birthday {
   color: gray;
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0;
+    padding: 0;
+    background-size: auto;
+    background-position: right;
+  }
+
+  .container {
+    padding-top: 0;
+    display: flex;
+  }
+
+  .time-countdown {
+    flex-direction: column;
+  }
+
+  .time-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .left-menu .person-title {
+    font-size: 25px;
+    border-bottom: 1px solid #333;
+  }
+
+  .left-menu {
+    width: 270px;
+  }
+
+  .left-menu .person-list-item {
+    font-size: 16px;
+  }
+
+  #leftMenuIcon {
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+  }
+
+  #leftMenuIcon.active {
+    left: 290px;
+  }
+
+  .form-container {
+    width: 350px;
+    height: 350px;
+    font-size: 16px;
+  }
+
+  .form-container input {
+    border-bottom: 1px solid #333;
+    font-size: 18px;
+    border-top: 15px;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  .addPersonButton {
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  .close-button {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .time-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .left-menu .person-title {
+    font-size: 22px;
+    border-bottom: 1px solid #333;
+  }
+
+  .left-menu {
+    width: 250px;
+  }
+
+  .left-menu .person-list-item {
+    font-size: 13px;
+  }
+
+  #leftMenuIcon {
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+  }
+
+  #leftMenuIcon.active {
+    left: 270px;
+  }
+
+  .form-container {
+    width: 250px;
+    height: 250px;
+    font-size: 13px;
+  }
+
+  .form-container input {
+    border-bottom: 1px solid #333;
+    font-size: 16px;
+    border-top: 15px;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  .addPersonButton {
+    border-radius: 20px;
+    font-size: 12px;
+    margin-top: 15px;
+  }
+
+  .close-button {
+    font-size: 18px;
+  }
 }
