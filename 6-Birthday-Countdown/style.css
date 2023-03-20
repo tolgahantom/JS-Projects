@@ -266,8 +266,16 @@ form {
   }
 
   .time-container {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
+  }
+
+  .time-container .time {
+    font-size: 85px;
+  }
+
+  .time-container .title {
+    font-size: 16px;
   }
 
   .left-menu .person-title {
@@ -324,6 +332,14 @@ form {
   .time-container {
     width: 120px;
     height: 120px;
+  }
+
+  .time-container .time {
+    font-size: 70px;
+  }
+
+  .time-container .title {
+    font-size: 14px;
   }
 
   .left-menu .person-title {

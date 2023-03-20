@@ -120,6 +120,8 @@ addPersonToLS = () => {
 };
 
 openPage = () => {
+  document.querySelector("input").value = "";
+  document.querySelector(".calendar").value = "";
   addPersonPage.classList.add("active");
 };
 
