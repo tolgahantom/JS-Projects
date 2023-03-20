@@ -5,6 +5,25 @@ const addPersonButton = document.querySelector(".addPersonButton");
 const openPageButton = document.querySelector(".add-person-button");
 const closeAddButton = document.querySelector(".close-button");
 const friendList = JSON.parse(localStorage.getItem("friends") || "[]");
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+const dayEl = document.querySelector(".day").querySelector(".time");
+const hourEl = document.querySelector(".hour").querySelector(".time");
+const minuteEl = document.querySelector(".minute").querySelector(".time");
+const secondEl = document.querySelector(".second").querySelector(".time");
+let timer;
 
 showInFriendList = () => {
   document.querySelectorAll(".person-list-item").forEach((item) => {
@@ -13,7 +32,10 @@ showInFriendList = () => {
   friendList.forEach((friend, index) => {
     let liEl = `
       <li class="person-list-item">
-        <h3 class="nickname">${friend.nickname}</h3>
+        <div class="person-info">
+          <h3 class="nickname">${friend.nickname}</h3>
+          <h6 class="birthday">${friend.birthday}</h6>
+        </div>
         <div class="settings-button">
           <div onclick="removeFriend(${index})" class="startCountdownButton">
             <i class="fa-solid fa-x"></i>
@@ -34,9 +56,43 @@ removeFriend = (personIndex) => {
   showInFriendList();
 };
 
-startCountdown = (personIndex) => {
-  let selectedPerson = friendList[personIndex];
-  console.log(selectedPerson);
+yearCalculator = (birthday) => {
+  let newBirthday = new Date(birthday);
+  if (new Date().getMonth() - newBirthday.getMonth() >= 0) {
+    return new Date().getFullYear() + 1;
+  } else {
+    return new Date().getFullYear();
+  }
+};
+
+startCountdown = async (personIndex) => {
+  menuIcon.click();
+  clearInterval(timer);
+  let selectedPersonBirthday = new Date(friendList[personIndex].birthday);
+  let newBirthday = new Date(
+    `${
+      months[selectedPersonBirthday.getMonth()]
+    } ${selectedPersonBirthday.getDate()} ${yearCalculator(
+      selectedPersonBirthday
+    )} 00:00:00`
+  );
+  timer = await setInterval(() => {
+    let timeLeft = (newBirthday - new Date()) / 1000;
+
+    const days = Math.floor(timeLeft / 3600 / 24);
+    const hours = Math.floor(timeLeft / 3600) % 24;
+    const mins = Math.floor(timeLeft / 60) % 60;
+    const seconds = Math.floor(timeLeft) % 60;
+
+    dayEl.innerHTML = days;
+    hourEl.innerHTML = formatTime(hours);
+    minuteEl.innerHTML = formatTime(mins);
+    secondEl.innerHTML = formatTime(seconds);
+  }, 1000);
+};
+
+formatTime = (time) => {
+  return time < 10 ? `0${time}` : time;
 };
 
 showInFriendList();

@@ -235,3 +235,13 @@ form {
 .settings-button > div {
   margin-left: 10px;
 }
+
+.person-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.person-info .birthday {
+  color: gray;
+}
