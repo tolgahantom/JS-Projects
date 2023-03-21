@@ -28,6 +28,12 @@ body::after {
   z-index: -100;
 }
 
+center {
+  position: absolute;
+  bottom: 0;
+  z-index: -500;
+}
+
 .container {
   position: relative;
   height: 100%;
@@ -250,6 +256,7 @@ form {
 /* RESPONSIVE */
 @media only screen and (max-width: 600px) {
   body {
+    height: calc(100vh - 50px);
     margin: 0;
     padding: 0;
     background-size: auto;
