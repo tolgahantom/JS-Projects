@@ -39,6 +39,12 @@ img {
   width: 100%;
 }
 
+center {
+  position: absolute;
+  bottom: 0;
+  z-index: -500;
+}
+
 /* NAVBAR */
 
 .navbar {
@@ -97,6 +103,18 @@ img {
   overflow: hidden;
 }
 
+#showDetailIcon {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  background-color: var(--light);
+  color: var(--bg-color);
+  padding: 7px;
+  border-radius: 50%;
+  display: none;
+}
+
 .movie-card:hover .movie-detail {
   transform: translateY(0);
 }
@@ -146,4 +164,30 @@ img {
 
 .movie-detail::-webkit-scrollbar {
   display: none;
+}
+
+/* RESPONSIVE CSS */
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+  }
+
+  .brand {
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .search-bar #search {
+    width: 150px;
+    margin-left: 0;
+  }
+
+  .search-bar i {
+    display: none;
+  }
 }

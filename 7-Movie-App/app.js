@@ -4,6 +4,7 @@ const ImgPath = "https://image.tmdb.org/t/p/w1280";
 
 const movieContainer = document.querySelector(".movies-container");
 const searchInput = document.querySelector("#search");
+const showDetailIcon = document.querySelector("#showDetailIcon");
 
 searchInput.addEventListener("input", (e) => {
   let search = e.target.value.toLowerCase();
