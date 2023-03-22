@@ -111,6 +111,12 @@ ul {
 
 .person-list {
   text-align: center;
+  max-height: 800px;
+  overflow-y: scroll;
+}
+
+.person-list::-webkit-scrollbar {
+  display: none;
 }
 
 .person-list-item {
@@ -292,6 +298,11 @@ form {
 
   .left-menu {
     width: 270px;
+  }
+
+  .left-menu .person-list {
+    max-height: 500px;
+    overflow-y: scroll;
   }
 
   .left-menu .person-list-item {

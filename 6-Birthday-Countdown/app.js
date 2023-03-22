@@ -58,8 +58,11 @@ removeFriend = (personIndex) => {
 
 yearCalculator = (birthday) => {
   let newBirthday = new Date(birthday);
-  if (new Date().getMonth() - newBirthday.getMonth() > 0) {
-    return new Date().getFullYear() + 1;
+  if (new Date().getMonth() - newBirthday.getMonth() >= 0) {
+    if (new Date().getDate() - newBirthday.getDate() > 0) {
+      return new Date().getFullYear() + 1;
+    }
+    return new Date().getFullYear();
   } else {
     return new Date().getFullYear();
   }
