@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Poppins:wght@300;400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Alkatra", cursive;
+  background-color: #1e1e2e;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.search {
+  background-color: #d0d1db;
+  padding: 10px 20px;
+  border-radius: 25px;
+}
+
+.search i {
+  cursor: pointer;
+}
+
+.search-input {
+  font-size: 16px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.info-card {
+  margin-top: 25px;
+  width: 800px;
+  height: 300px;
+  display: grid;
+  background-color: #625b7c;
+  padding: 10px;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  gap: 20px;
+  border-radius: 25px;
+}
+
+.info-card .person-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid #1e1e2e;
+  overflow: hidden;
+}
+
+.info-card .person-img img {
+  width: 100%;
+  height: auto;
+}
+
+.person-detail {
+  color: #d0d1db;
+}
+
+.person-detail .name {
+  font-size: 25px;
+}
+
+.person-detail .job {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.icons {
+  margin-top: 20px;
+  margin: left;
+  width: 70%;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.icon-nums {
+  margin-right: 5px;
+}
