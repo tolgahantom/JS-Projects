@@ -262,11 +262,13 @@ form {
 /* RESPONSIVE */
 @media only screen and (max-width: 600px) {
   body {
-    height: calc(100vh - 50px);
+    height: calc(100% - 50px);
     margin: 0;
     padding: 0;
-    background-size: auto;
-    background-position: right;
+  }
+
+  body::after {
+    height: 100vh;
   }
 
   .container {
@@ -289,6 +291,10 @@ form {
 
   .time-container .title {
     font-size: 16px;
+  }
+
+  .left-menu {
+    height: 100vh;
   }
 
   .left-menu .person-title {
@@ -409,3 +415,14 @@ form {
     font-size: 18px;
   }
 }
+
+@media only screen and (max-height: 640px) {
+  body::after {
+    height: 100%;
+  }
+
+  .left-menu .person-list {
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+} ;
