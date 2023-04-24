@@ -9,8 +9,6 @@ const daysInWeek = [
   "Saturday",
 ];
 
-// 2-10-18-26-34 is the 5 day
-
 findDay = (day) => {
   let date = new Date(day);
   return date.getDay();
