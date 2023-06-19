@@ -1,5 +1,6 @@
 const display = document.querySelector(".calculator-input");
 const keys = document.querySelector(".calculator-keys");
+const firstInput = document.querySelector(".first-value");
 
 let displayValue = "0";
 let firstValue = null;
@@ -12,6 +13,25 @@ function updateDisplay() {
   display.value = displayValue;
 }
 
+const showFirstValue = (value, operator) => {
+  if (value && operator) {
+    switch (operator) {
+      case "=":
+        firstInput.innerHTML = null;
+        break;
+      case "*":
+        firstInput.innerHTML = value + " x";
+        break;
+      case "/":
+        firstInput.innerHTML = value + ` &divide;`;
+        break;
+      default:
+        firstInput.innerHTML = value + " " + operator;
+        break;
+    }
+  }
+};
+
 const inputNumber = (num) => {
   if (waitingForSecondValue) {
     displayValue = num;
@@ -23,7 +43,7 @@ const inputNumber = (num) => {
       displayValue += num;
     }
   }
-  showFirstValueAndOperator(firstValue, operator);
+  showFirstValue(firstValue, operator);
 };
 
 const inputDecimal = () => {
@@ -37,11 +57,13 @@ const clear = () => {
   waitingForSecondValue = false;
   firstValue = null;
   operator = null;
+  firstInput.innerHTML = null;
 };
 
 const handleOperator = (selectedOperator) => {
   if (operator && waitingForSecondValue) {
     operator = selectedOperator;
+    showFirstValue(firstValue, operator);
     return;
   }
 
@@ -52,12 +74,11 @@ const handleOperator = (selectedOperator) => {
     const result = calculate(firstValue, value, operator);
     displayValue = `${parseFloat(result.toFixed(7))}`;
     firstValue = result;
-
-    console.log(firstValue);
   }
 
   waitingForSecondValue = true;
   operator = selectedOperator;
+  showFirstValue(firstValue, operator);
 };
 
 const calculate = (first, second, operator) => {
