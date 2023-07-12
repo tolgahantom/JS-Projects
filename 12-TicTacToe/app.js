@@ -18,17 +18,18 @@ const winningCombination = [
   [2, 4, 6],
 ];
 
-let random = Math.floor(Math.random() * classes.length);
-let firstTurn = classes[1 - random];
-let otherTurn = classes[random];
-let circleTurn = firstTurn;
-whoTurnsElement.innerHTML = circleTurn;
+let firstTurn, circleTurn, otherTurn;
 
 startGame();
 
 restartButton.addEventListener("click", startGame);
 
 function startGame() {
+  let random = Math.floor(Math.random() * classes.length);
+  firstTurn = classes[1 - random];
+  otherTurn = classes[random];
+  circleTurn = firstTurn;
+  whoTurnsElement.innerHTML = circleTurn;
   cellElements.forEach((cell) => {
     cell.classList.remove("x");
     cell.classList.remove("circle");
