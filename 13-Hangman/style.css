@@ -150,3 +150,44 @@ body {
 .flag.active {
   border-bottom: 1px solid #fff;
 }
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 700px) {
+  .languages {
+    width: 120px;
+    height: 80px;
+    right: 2%;
+    flex-direction: column;
+  }
+  .languages .flag {
+    width: 50px;
+    height: 40px;
+  }
+
+  .graphic {
+    stroke-width: 2px;
+  }
+
+  .letter {
+    width: 25px;
+    height: 25px;
+    line-height: 12.5px;
+    margin: 0 5px;
+    padding: 5px;
+  }
+
+  .keyboard {
+    display: grid;
+    width: 35%;
+    font-size: 15px;
+    grid-template-columns: repeat(8, auto);
+  }
+
+  .key {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    padding: 5px;
+  }
+}
