@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="turkish">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="languages">
+      <div class="flag turkey">
+        <img src="assets/flagtr.png" alt="" />
+      </div>
+      <div class="flag england">
+        <img src="assets/flagen.png" alt="" />
+      </div>
+    </div>
+    <div class="man">
+      <svg height="350" width="250" class="graphic">
+        <!-- SEHPA -->
+        <line x1="50" y1="20" x2="180" y2="20" />
+        <line x1="50" y1="20" x2="50" y2="280" />
+        <line x1="50" y1="80" x2="100" y2="20" />
+        <line x1="30" y1="280" x2="70" y2="280" />
+        <line x1="180" y1="20" x2="180" y2="50" />
+        <!-- KAFA -->
+        <circle cx="180" cy="70" r="20" class="item" />
+        <!-- GÖVDE -->
+        <line x1="180" y1="90" x2="180" y2="200" class="item" />
+        <!-- KOLLAR -->
+        <line x1="150" y1="150" x2="180" y2="90" class="item" />
+        <line x1="180" y1="90" x2="210" y2="150" class="item" />
+        <!-- BACAKLAR -->
+        <line x1="150" y1="240" x2="180" y2="200" class="item" />
+        <line x1="180" y1="200" x2="210" y2="240" class="item" />
+      </svg>
+    </div>
+    <div class="word" id="word"></div>
+    <div class="keyboard">
+      <div class="key">A</div>
+      <div class="key">B</div>
+      <div class="key">C</div>
+      <div class="key turkish">Ç</div>
+      <div class="key">d</div>
+      <div class="key">e</div>
+      <div class="key">f</div>
+      <div class="key">g</div>
+      <div class="key turkish">ğ</div>
+      <div class="key">h</div>
+      <div class="key">I</div>
+      <div class="key turkish">İ</div>
+      <div class="key">j</div>
+      <div class="key">k</div>
+      <div class="key">l</div>
+      <div class="key">m</div>
+      <div class="key">n</div>
+      <div class="key">o</div>
+      <div class="key turkish">ö</div>
+      <div class="key">p</div>
+      <div class="key english">q</div>
+      <div class="key">r</div>
+      <div class="key">s</div>
+      <div class="key turkish">ş</div>
+      <div class="key">t</div>
+      <div class="key">u</div>
+      <div class="key turkish">ü</div>
+      <div class="key">v</div>
+      <div class="key english">W</div>
+      <div class="key english">X</div>
+      <div class="key">y</div>
+      <div class="key">Z</div>
+    </div>
+    <div class="popup">
+      <div class="popup-message"></div>
+      <div class="wrong-word"></div>
+      <button id="play-again">Play Again</button>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

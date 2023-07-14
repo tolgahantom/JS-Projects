@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.graphic {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 4px;
+}
+
+.item {
+  display: none;
+}
+
+.word {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.letter {
+  border-bottom: 1px solid #fff;
+  width: 50px;
+  height: 50px;
+  line-height: 25px;
+  margin: 0 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.keyboard {
+  text-transform: uppercase;
+  display: grid;
+  width: 50%;
+  align-content: center;
+  justify-content: center;
+  font-size: 25px;
+  text-align: center;
+  grid-template-columns: repeat(9, auto);
+}
+
+.key {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border: 1px solid #fff;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.key.correct,
+.key.wrong {
+  cursor: not-allowed;
+}
+.key.correct {
+  border: 1px solid greenyellow;
+}
+.key.wrong {
+  border: 1px solid red;
+}
+.key:hover {
+  opacity: 0.8;
+}
+
+.popup {
+  display: none !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrong-word {
+  font-size: 20px;
+  margin-top: 10px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.popup.active {
+  display: flex !important;
+}
+
+#play-again {
+  margin-top: 20px;
+  outline: none;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: 25px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#play-again:hover {
+  background-color: #fff;
+  color: black;
+}
+
+.languages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  top: 5%;
+  right: 5%;
+  z-index: 100;
+}
+
+.languages img {
+  width: 100%;
+}
+
+.languages .flag {
+  width: 80px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.flag.active {
+  border-bottom: 1px solid #fff;
+}
