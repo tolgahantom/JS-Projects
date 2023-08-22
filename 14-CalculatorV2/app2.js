@@ -24,6 +24,14 @@ function showHistory() {
 }
 
 function handleOperator(element) {
+  if (element == ".") {
+    if (!firstInput.innerHTML.includes(".")) {
+      firstInput.innerHTML += element;
+      return;
+    } else {
+      return;
+    }
+  }
   if (element == "backspace") {
     if (firstInput.innerHTML != "") {
       firstInput.innerHTML = firstInput.innerHTML.slice(0, -1);
