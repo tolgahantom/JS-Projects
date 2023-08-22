@@ -10,6 +10,7 @@ let firstValue = null;
 let operator = null;
 let waitingForSecondValue = false;
 let history = [];
+let multipleOperation;
 
 updateDisplay();
 showHistory();
@@ -100,10 +101,6 @@ const handleOperator = (selectedOperator) => {
   if (firstValue == null) {
     firstValue = value;
   } else if (operator) {
-    if (operator == "negative") {
-      firstValue * -1;
-      console.log("negative : " + displayValue);
-    }
     const result = calculate(firstValue, value, operator);
     if (history.length == 3) {
       history.shift();
@@ -141,6 +138,10 @@ const calculate = (first, second, operator) => {
   }
 };
 
+function changeThema() {
+  document.querySelector("body").classList.toggle("dark-mode");
+}
+
 keys.addEventListener("click", (e) => {
   const element = e.target;
   if (!element.matches("button")) return;
@@ -169,10 +170,6 @@ keys.addEventListener("click", (e) => {
   inputNumber(element.value);
   updateDisplay();
 });
-
-function changeThema() {
-  document.querySelector("body").classList.toggle("dark-mode");
-}
 
 colorModes.addEventListener("click", (e) => {
   if (!e.target.classList.contains("fa-regular")) {
