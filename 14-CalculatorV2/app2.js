@@ -38,6 +38,15 @@ function handleOperator(element) {
     return;
   }
   if (element == "=") {
+    if (
+      firstInput.innerHTML.slice(-1) == "*" ||
+      firstInput.innerHTML.slice(-1) == "-" ||
+      firstInput.innerHTML.slice(-1) == "/" ||
+      firstInput.innerHTML.slice(-1) == "+" ||
+      firstInput.innerHTML.slice(-1) == "%"
+    ) {
+      firstInput.innerHTML = firstInput.innerHTML.slice(0, -1);
+    }
     const result = eval(firstInput.innerHTML);
     answerElement.innerHTML = result;
     if (history.length == 3) {
@@ -61,14 +70,35 @@ function handleOperator(element) {
     firstInput.innerHTML += element;
     return;
   }
+
+  if (
+    firstInput.innerHTML.slice(-1) == "*" ||
+    firstInput.innerHTML.slice(-1) == "-" ||
+    firstInput.innerHTML.slice(-1) == "/" ||
+    firstInput.innerHTML.slice(-1) == "+" ||
+    firstInput.innerHTML.slice(-1) == "%"
+  ) {
+    firstInput.innerHTML = firstInput.innerHTML.slice(0, -1) + element;
+    return;
+  }
 }
 
 keys.addEventListener("click", (e) => {
   const element = e.target;
   lastIsOperator = false;
   if (!element.matches("button")) return;
-  if (answerElement.innerHTML != "0") {
+  if (
+    answerElement.innerHTML != "0" &&
+    element.classList.contains("operator")
+  ) {
     firstInput.innerHTML = answerElement.innerHTML;
+    answerElement.innerHTML = "0";
+  }
+
+  if (
+    answerElement.innerHTML != "0" &&
+    !element.classList.contains("operator")
+  ) {
     answerElement.innerHTML = "0";
   }
 
