@@ -203,7 +203,7 @@ body {
 
 .right-3 {
   width: 60px;
-  height: 365px;
+  height: 95%;
   grid-area: 1 / 4 / 6 / 5;
   background-color: var(--button-bg-color);
   display: flex;
@@ -218,4 +218,37 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
   width: 60px;
   height: 60px;
+}
+
+@media (min-width: 991px) {
+  .calculator-container {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 920px;
+    width: 450px;
+  }
+
+  .history-container {
+    width: 20%;
+  }
+
+  .key {
+    width: 80px;
+    height: 80px;
+  }
+
+  .top-3 {
+    width: 100%;
+  }
+
+  .right-3 {
+    width: 80px;
+    height: 97%;
+  }
+
+  .keyboard-equal {
+    width: 80px;
+    height: 80px;
+  }
 }

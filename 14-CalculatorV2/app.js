@@ -14,6 +14,15 @@ let history = [];
 updateDisplay();
 showHistory();
 
+function updateNumber() {
+  if (displayValue === "0" || displayValue === 0) {
+    return;
+  }
+  displayValue *= -1;
+  firstValue ? (firstValue *= -1) : null;
+  updateDisplay();
+}
+
 function showHistory() {
   historyContainer.querySelector(".history-list").innerHTML = "";
   history.forEach((historyItem) => {
@@ -91,6 +100,10 @@ const handleOperator = (selectedOperator) => {
   if (firstValue == null) {
     firstValue = value;
   } else if (operator) {
+    if (operator == "negative") {
+      firstValue * -1;
+      console.log("negative : " + displayValue);
+    }
     const result = calculate(firstValue, value, operator);
     if (history.length == 3) {
       history.shift();
@@ -121,6 +134,8 @@ const calculate = (first, second, operator) => {
       return first * second;
     case "/":
       return first / second;
+    case "%":
+      return first % second;
     default:
       return second;
   }
@@ -143,7 +158,11 @@ keys.addEventListener("click", (e) => {
   if (element.classList.contains("clear")) {
     clear();
     updateDisplay();
+    return;
+  }
 
+  if (element.classList.contains("changer")) {
+    updateNumber();
     return;
   }
 
