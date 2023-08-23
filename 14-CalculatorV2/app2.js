@@ -4,10 +4,21 @@ const answerElement = document.querySelector(".answer-value-text");
 const colorModes = document.querySelector(".icons");
 const historyIcon = document.querySelector(".history i");
 const historyContainer = document.querySelector(".history-container");
+const operators = ["+", "-", "*", "/", "%"];
 
 let lastIsOperator = false;
 let history = [];
 answerElement.innerHTML = "0";
+
+function checkInput(string) {
+  let needCheckArray = [];
+  for (let i = string.length - 1; i >= 0; i--) {
+    needCheckArray.push(string[i]);
+    if (operators.includes(string[i])) {
+      return needCheckArray.includes(".") ? true : false;
+    }
+  }
+}
 
 function showHistory() {
   historyContainer.querySelector(".history-list").innerHTML = "";
@@ -25,7 +36,14 @@ function showHistory() {
 
 function handleOperator(element) {
   if (element == ".") {
-    if (!firstInput.innerHTML.includes(".")) {
+    if (
+      !firstInput.innerHTML.includes("+") &&
+      firstInput.innerHTML.includes(".")
+    ) {
+      return;
+    }
+    let isOkey = checkInput(firstInput.innerHTML);
+    if (!isOkey) {
       firstInput.innerHTML += element;
       return;
     } else {
