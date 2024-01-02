@@ -3,11 +3,18 @@ var score = 0;
 var columns = 4;
 var rows = 4;
 
+document.getElementById("restartButton").addEventListener("click", () => {
+  document.querySelector(".endGameContainer").style.display = "none";
+  setGame();
+});
+
 window.onload = () => {
   setGame();
 };
 
 const setGame = () => {
+  score = 0;
+  document.getElementById("score").innerText = "0";
   board = [
     [0, 0, 0, 0],
     [0, 0, 0, 0],
@@ -139,6 +146,31 @@ const updateBoard = (board) => {
       document.querySelector(".game-container").append(box);
     }
   }
+
+  if (isGameOver(board)) {
+    document.querySelector(".endGameContainer").style.display = "flex";
+    document.getElementById("endGameScore").innerText = score;
+    return;
+  }
+};
+
+const isGameOver = (board) => {
+  function canMerge() {
+    for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < columns; j++) {
+        if (j + 1 < 4 && board[i][j] === board[i][j + 1]) {
+          return true; // You can merge at row
+        }
+        if (i + 1 < 4 && board[i][j] === board[i + 1][j]) {
+          return true; // You can merge at column
+        }
+      }
+    }
+
+    return false;
+  }
+
+  return !canMerge() && !hasEmptyBox();
 };
 
 const makeNewBox = () => {
