@@ -61,6 +61,7 @@ const slide = (row) => {
       row[i] *= 2;
       row[i + 1] = 0;
       score += row[i];
+      document.getElementById("score").innerText = score;
     }
   }
 
