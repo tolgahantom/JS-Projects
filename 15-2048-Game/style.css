@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Tektur&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Tektur", sans-serif;
+  width: 100%;
+  height: 100vh;
+  background-color: gainsboro;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.title-score {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-score .game-title {
+  font-size: 36px;
+}
+
+.title-score .score-container {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: brown;
+  color: gainsboro;
+}
+
+.title-score .score-container .score-line {
+  width: 80%;
+  height: 2px;
+  background-color: gainsboro;
+}
+
+.game-container {
+  border: 5px solid #bbada0;
+  width: 410px;
+  height: 410px;
+  background-color: #cdc1b5;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.game-container .box {
+  width: 100px;
+  height: 100px;
+  border: 5px solid #bbada0;
+  background-color: #d1bfb0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.x2 {
+  background-color: #eee4da !important;
+  color: #727371;
+}
+
+.x4 {
+  background-color: #ece0ca !important;
+  color: #727371;
+}
+
+.x8 {
+  background-color: #f4b17a !important;
+  color: white;
+}
+
+.x16 {
+  background-color: #f59575 !important;
+  color: white;
+}
+
+.x32 {
+  background-color: #f57c5f !important;
+  color: white;
+}
+
+.x64 {
+  background-color: #f65d3b !important;
+  color: white;
+}
+
+.x128 {
+  background-color: #edce71 !important;
+  color: white;
+}
+
+.x256 {
+  background-color: #edcc63 !important;
+  color: white;
+}
+
+.x512 {
+  background-color: #edc651 !important;
+  color: white;
+}
+
+.x1024 {
+  background-color: #eec744 !important;
+  color: white;
+}
+
+.x2048 {
+  background-color: #ecc230 !important;
+  color: white;
+}
