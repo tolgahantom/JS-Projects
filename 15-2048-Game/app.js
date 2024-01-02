@@ -147,9 +147,19 @@ const updateBoard = (board) => {
     }
   }
 
+  if (youWon(board)) {
+    document.querySelector(".endGameContainer").style.display = "flex";
+    document.getElementById("endGameScore").innerText = score;
+    document.querySelector(".lost-container-message").innerText = "You Won";
+    document.querySelector(".lost-container-message").style.color = "green";
+    return;
+  }
+
   if (isGameOver(board)) {
     document.querySelector(".endGameContainer").style.display = "flex";
     document.getElementById("endGameScore").innerText = score;
+    document.querySelector(".lost-container-message").innerText = "You Lost";
+    document.querySelector(".lost-container-message").style.color = "red";
     return;
   }
 };
@@ -171,6 +181,17 @@ const isGameOver = (board) => {
   }
 
   return !canMerge() && !hasEmptyBox();
+};
+
+const youWon = (board) => {
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      if (board[i][j] == 2048) {
+        return true;
+      }
+    }
+  }
+  return false;
 };
 
 const makeNewBox = () => {
