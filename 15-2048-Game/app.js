@@ -2,15 +2,80 @@ var board;
 var score = 0;
 var columns = 4;
 var rows = 4;
-
-document.getElementById("restartButton").addEventListener("click", () => {
-  document.querySelector(".endGameContainer").style.display = "none";
-  setGame();
-});
+var startX;
+var startY;
+var moved;
 
 window.onload = () => {
   setGame();
 };
+
+const handleTouchStart = (e) => {
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+  moved = false;
+  e.preventDefault();
+};
+
+const handleTouchEnd = (e) => {
+  endX = e.changedTouches[0].clientX;
+  endY = e.changedTouches[0].clientY;
+
+  if (endX - startX > 0 || endY - startY > 0) {
+    if (Math.abs(endY - startY) > Math.abs(endX - startX)) {
+      if (endY - startY < 50) {
+        slideUp();
+      } else if (endY - startY > 50) {
+        slideDown();
+      }
+    } else {
+      if (endX - startX < 50) {
+        slideLeft();
+      } else if (endX - startX > 50) {
+        slideRight();
+      }
+    }
+  }
+
+  e.preventDefault();
+};
+
+// const handleTouchMove = (e) => {
+//   e.preventDefault();
+
+//   if (!startX || !startY || moved) {
+//     return;
+//   }
+
+//   let currentX = e.touches[0].clientX;
+//   let currentY = e.touches[0].clientY;
+
+//   let deltaX = currentX - startX;
+//   let deltaY = currentY - startY;
+
+//   if (deltaX < 100) {
+//     slideLeft();
+//   } else if (deltaX > 100) {
+//     slideRight();
+//   } else if (deltaY < 100) {
+//     slideUp();
+//   } else if (deltaY > 100) {
+//     slideDown();
+//   }
+
+//   moved = true;
+// };
+
+document.addEventListener("touchstart", handleTouchStart, { passive: false });
+document.addEventListener("touchend", handleTouchEnd, { passive: false });
+document.getElementById("restartButton").addEventListener("touchend", () => {
+  document.querySelector(".endGameContainer").style.display = "none";
+  setGame();
+});
+document.getElementById("restartButton").addEventListener("click", () => {
+  document.querySelector(".endGameContainer").style.display = "none";
+  setGame();
+});
 
 const setGame = () => {
   score = 0;

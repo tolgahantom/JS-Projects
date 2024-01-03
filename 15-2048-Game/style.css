@@ -179,3 +179,67 @@ body {
   background-color: #ecc230 !important;
   color: white;
 }
+
+.copyright {
+  font-size: 10px;
+}
+
+.copyright span {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 390px) {
+  body {
+    gap: 10px;
+  }
+
+  .lost-container-message {
+    font-size: 20px;
+  }
+
+  .lost-container-score p {
+    font-size: 16px;
+    border-bottom: double 1px steelblue;
+  }
+
+  .lost-container-score span {
+    font-size: 26px;
+  }
+
+  .title-score {
+    width: 300px;
+  }
+
+  .title-score .game-title {
+    font-size: 32px;
+  }
+
+  .title-score .score-container {
+    width: 80px;
+  }
+
+  .title-score .score-container .score-line {
+    height: 1px;
+  }
+
+  .game-container {
+    border: 5px solid #bbada0;
+    width: 310px;
+    height: 310px;
+    background-color: #cdc1b5;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .game-container .box {
+    width: 75px;
+    height: 75px;
+    border: 5px solid #bbada0;
+    background-color: #d1bfb0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+  }
+}
